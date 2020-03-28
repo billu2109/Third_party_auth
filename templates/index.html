@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load socialaccount %}
+{% providers_media_js %}
+<html lang="en">
+<head>
+    {% block content %}
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+            <div class="border-top pt-3" style="margin-left: 40%;margin-top: 15%">
+                <button><a href="{% provider_login_url "facebook" method='js_sdk' %}">Facebook</a></button>
+                <button><a href="{% provider_login_url "google" method='js_sdk' %}">Google</a></button>
+                <h3>or</h3>
+                <small class="text-muted">
+                    <button style="size:"><a href="/accounts/login/" >LOGIN</a></button>
+
+                </small>
+            </div>
+        </div>
+    {% endblock content %}
+
+</head>
+</body>
+</html>

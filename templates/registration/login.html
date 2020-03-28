@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+
+{% block content %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+    </head>
+    <body>
+    <div class="row form-section" id="register">
+    <div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="background: gray;margin-top: 05px;padding: 30px;">
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            <input type="text" name="username" placeholder="Username"><br>
+            <input type="password" name="password" placeholder="Password"><br><br>
+
+            <input type="submit" value="LogIn" class="btn btn-success"
+                   style="width: 80px; height: 33px; margin-left: 10px"> or
+
+                <button><a href="{% provider_login_url "facebook" method='js_sdk' %}">Facebook</a></button>
+                <button><a href="{% provider_login_url "google" method='js_sdk' %}">Google</a></button><br><br>
+
+        </table>
+    </form>
+{% endblock %}
+</body>
+</html>
